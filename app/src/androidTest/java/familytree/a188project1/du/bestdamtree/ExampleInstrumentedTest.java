@@ -1,4 +1,4 @@
-package bestdamtree.a188project1.du.bestdamtree;
+package familytree.a188project1.du.bestdamtree;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

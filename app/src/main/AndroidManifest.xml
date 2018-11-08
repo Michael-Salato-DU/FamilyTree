@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bestdamtree.a188project1.du.bestdamtree">
+    package="familytree.a188project1.du.bestdamtree">
 
     <application
         android:allowBackup="true"
