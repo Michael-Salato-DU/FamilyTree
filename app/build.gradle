@@ -4,7 +4,7 @@ apply plugin: 'realm-android'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "bestdamtree.a188project1.du.bestdamtree"
+        applicationId "familytree.a188project1.du.bestdamtree"
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
