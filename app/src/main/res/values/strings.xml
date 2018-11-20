@@ -1,5 +1,16 @@
 <resources>
-    <string name="app_name">Family Tree :)</string>
+
+    <string name="app_name">Family Tree</string>
+
+    <!-- strings for menu items for nav drawer -->
+    <string name="profile">Profile</string>
+    <string name="trees">Your Trees</string>
+    <string name="hints">Helpful Hints</string>
+    <string name="sign_out">Sign Out</string>
+
+    <!-- string for navigation menu header -->
+    <string name="header">Family Tree</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -25,5 +36,4 @@
     <string name="title_activity_genre">genre</string>
     <string name="title_activity_Genre_selection">Genre Selection</string>
     <string name="title_activity_login">Family Tree :)</string>
-
 </resources>
