@@ -58,15 +58,34 @@ public class MainActivity extends AppCompatActivity {
                         menuItem.setCheckable(true);
                         //close drawer when item is tapped
                         mDrawerLayout.closeDrawers();
+                        // end source
 
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
+                        // Open the appropriate activity or fragment based on the selected menu item
+                        // Open your profile to edit your card
+                        if (menuItem.getTitle().equals("Profile")) {
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                        // Open up your list of saved trees
+                        else if (menuItem.getTitle().equals("Your Trees")) {
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                        // Open up helpful hints
+                        else if (menuItem.getTitle().equals("Helpful Hints")) {
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                        // Sign out and return to the login page
+                        else if (menuItem.getTitle().equals("Sign Out")) {
+                            Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                            startActivity(intent);
+                        }
 
                         return true;
                     }
                 }
         );
-        // end source
     }
 
     // source for opening the navigation drawer when the "hamburger menu" is tapped:
