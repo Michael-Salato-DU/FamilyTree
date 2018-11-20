@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FamilyTree</string>
+
+    <!-- strings for menu items for nav drawer -->
+    <string name="profile">Profile</string>
+    <string name="trees">Your Trees</string>
+    <string name="hints">Helpful Hints</string>
+    <string name="sign_out">Sign Out</string>
+
+    <!-- string for navigation menu header -->
+    <string name="header">Family Tree</string>
 </resources>
