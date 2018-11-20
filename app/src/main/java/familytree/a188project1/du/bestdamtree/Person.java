@@ -1,9 +1,10 @@
 package familytree.a188project1.du.bestdamtree;
 
 import io.realm.RealmList;
+import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Person {
+public class Person extends RealmObject{
     @PrimaryKey
     private int RealmID;
     private String firstName;
