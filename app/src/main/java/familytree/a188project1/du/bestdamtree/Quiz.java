@@ -1,12 +1,15 @@
 package familytree.a188project1.du.bestdamtree;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Quiz implements Serializable {
     private String Type;
     private String Question;
-    private List<String> Answers;
+    private ArrayList<String> Answers;
     private int CorrectAnswer;
     private int Response;
 
@@ -42,11 +45,11 @@ public class Quiz implements Serializable {
         this.Answers.add(this.CorrectAnswer, correctAnswer);
     }
 
-    public List<String> getAnswers(){
-        return this.Answers;
+    public String getAnswer(int i){
+        return this.Answers.get(i);
     }
-    public void setAnswers(List<String> answers){
-        this.Answers = answers;
+    public void setAnswers(String [] answers){
+        this.Answers = new ArrayList<String>(Arrays.asList(answers));
     }
 
     public void setUserResponse(int response){
