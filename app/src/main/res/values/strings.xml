@@ -1,6 +1,38 @@
 <resources>
-    <string name="app_name">FamilyTree</string>
+    <string name="app_name">Family Tree</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- strings for menu items for nav drawer -->
+    <string name="profile">Profile</string>
+    <string name="trees">Your Trees</string>
+    <string name="hints">Helpful Hints</string>
+    <string name="sign_out">Sign Out</string>
+
+    <!-- string for navigation menu header -->
+    <string name="header">Family Tree</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="register_short">Register</string>
+    <string name="register_title">Register an account</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="incorrect_credentials">Incorrect email/password.</string>
+
+    <!-- Register -->
+    <string name="firstname_register">First Name</string>
+    <string name="lastname_register">Last Name</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="account_created">Account Created!</string>
+    <string name="register_error">Please check for errors.</string>
+    <string name="Submit">Submit</string>
+    <string name="title_activity_genre">genre</string>
+    <string name="title_activity_Genre_selection">Genre Selection</string>
+    <string name="title_activity_login">Family Tree :)</string>
 </resources>
