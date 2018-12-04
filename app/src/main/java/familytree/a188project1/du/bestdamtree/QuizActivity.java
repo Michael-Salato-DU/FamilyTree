@@ -1,15 +1,16 @@
 package familytree.a188project1.du.bestdamtree;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.view.ViewPager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+
+
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         nextButton = (Button)findViewById(R.id.next_submit_button);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        CustomViewPager viewPager = (CustomViewPager) findViewById(R.id.viewPager);
 
         Quiz quiz1 = new Quiz(1);
         Quiz quiz2 = new Quiz(0);
@@ -34,7 +35,7 @@ public class QuizActivity extends AppCompatActivity {
         quiz2.setQuestion("What is my name?");
         quiz3.setQuestion("What is the meaning of life?");
         quiz4.setQuestion("Who is Elsa's sister?");
-        quiz5.setQuestion("What do you call a bank in a city?");
+        quiz5.setQuestion("What do you call a bank in a city????");
 
         String [] quiz1Ans = {"Jeremy","Bruce","Dan","Burger"};
         String [] quiz2Ans = {"Johanan","Jupiter","Justin", "Ralph"};
@@ -55,57 +56,73 @@ public class QuizActivity extends AppCompatActivity {
         quizzes.add(quiz5);
 
         QuizAdapter adapter = new QuizAdapter(getSupportFragmentManager(),quizzes,quizzes.size());
-        viewPager.setAdapter(adapter);
 
+        viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage("Write your message here.");
-        builder1.setCancelable(true);
+        AlertDialog.Builder dialogStop = new AlertDialog.Builder(this);
 
-        builder1.setPositiveButton(
-                "Yes",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        builder1.setNegativeButton(
-                "No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alert11 = builder1.create();
-
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            int count = 1;
-            @Override
-            public void onClick(View v) {
-                if(count < quizzes.size()-1)
-                {
-                    viewPager.setCurrentItem(count);
-                    count+=1;
-                }
-                else if (count == quizzes.size()){
-                    alert11.show();
-                }
-
-                else{
-                    viewPager.setCurrentItem(count);
-                    nextButton.setText("Submit");
-                    if (count == quizzes.size()-1){
-                        count++;
-                    }
-                }
-
-            }
+        dialogStop.setMessage("Please select an answer.");
+        dialogStop.setCancelable(true);
+        dialogStop.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {dialogInterface.cancel();}
         });
 
+        AlertDialog alertStop = dialogStop.create();
 
+        nextButton.setOnClickListener(new View.OnClickListener() {
+
+            int count = 1;
+            int totalitems = viewPager.getAdapter().getCount();
+
+            @Override
+            public void onClick(View v) {
+                Quiz question = quizzes.get(count -1);
+                if (question.getUserResponse() != 1000) {
+                    if (count < totalitems){
+                        question.Markme();
+                        viewPager.setCurrentItem(count);
+
+                        if (count == totalitems - 1) {
+                            nextButton.setText("Submit");
+                        }
+                        count ++;
+                    }
+                    else if (count == totalitems){
+                        question.Markme();
+                        Intent reward_intent = new Intent(getBaseContext(),QuizActivityReward.class);
+                        reward_intent.putExtra("quiz_count",totalitems);
+                        reward_intent.putParcelableArrayListExtra("Quizzes", quizzes);
+                        startActivity(reward_intent);
+                        count ++;
+                    }
+                }
+                else{
+                    alertStop.show();
+                }
+            }
+        });
     }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder dialogExit = new AlertDialog.Builder(this);
+        dialogExit.setMessage("Do you want to quit the quiz?");
+        dialogExit.setCancelable(true);
+        dialogExit.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                QuizActivity.super.onBackPressed();
+                finish();
+            }
+        });
+        dialogExit.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertExit = dialogExit.create();
+        alertExit.show();
+    }
+
 }
+

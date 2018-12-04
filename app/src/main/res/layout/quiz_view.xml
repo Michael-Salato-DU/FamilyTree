@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="500dp"
+    tools:context=".QuizFragment">
 
     <TextView
         android:id="@+id/question_text"
-        android:layout_width="350dp"
-        android:layout_height="71dp"
+        android:layout_width="357dp"
+        android:layout_height="112dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:text="Question"
-        android:textSize="18sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +23,8 @@
 
     <RadioGroup
         android:id="@+id/answers_group"
-        android:layout_width="350dp"
-        android:layout_height="279dp"
+        android:layout_width="363dp"
+        android:layout_height="293dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
@@ -35,41 +36,41 @@
 
         <RadioButton
             android:id="@+id/answer_button_a"
-            android:layout_width="304dp"
-            android:layout_height="32dp"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:text="A"
-            android:textSize="18sp"
+            android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="239dp" />
 
         <RadioButton
             android:id="@+id/answer_button_b"
-            android:layout_width="304dp"
-            android:layout_height="32dp"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:text="B"
-            android:textSize="18sp"
+            android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="148dp" />
 
         <RadioButton
             android:id="@+id/answer_button_c"
-            android:layout_width="304dp"
-            android:layout_height="32dp"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:text="C"
-            android:textSize="18sp"
+            android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="105dp" />
 
         <RadioButton
             android:id="@+id/answer_button_d"
-            android:layout_width="304dp"
-            android:layout_height="32dp"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:text="D"
-            android:textSize="18sp"
+            android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="191dp" />
     </RadioGroup>
