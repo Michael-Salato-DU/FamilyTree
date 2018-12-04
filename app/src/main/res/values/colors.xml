@@ -9,4 +9,5 @@
     <color name="status_bar">#0b3c5d</color>
     <color name="buttoncolor">#009688</color>
     <color name="EditTextColor">#F3F5DF</color>
+    <color name="text_color_primary">#dd000000</color>
 </resources>
