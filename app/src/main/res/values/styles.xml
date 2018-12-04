@@ -1,42 +1,57 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
+    </style>
+
+    <!--<style name="AppTheme.NoActionBar">-->
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+    <!--</style>-->
+
+    <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+
+    <!--<style name="BestDamTheme" parent="Theme.AppCompat" >-->
+        <!--<item name="android:colorBackground" tools:ignore="PrivateResource">@color/background_material_light</item>-->
+        <!--<item name="android:statusBarColor">@color/status_bar</item>-->
+        <!--<item name="colorAccent">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorPrimary">@android:color/white</item>-->
+        <!--<item name="android:navigationBarColor">@color/status_bar</item>-->
+        <!--<item name="android:textColorSecondary">@android:color/white</item>-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorSecondaryInverse">@color/buttonfill</item>-->
+    <!--</style>-->
+
+    <!--<style name="BestDamThemeNoToolbar" parent="Theme.AppCompat.NoActionBar">-->
+        <!--<item name="android:colorBackground" tools:ignore="PrivateResource">@color/background_material_light</item>-->
+        <!--<item name="android:statusBarColor">@color/status_bar</item>-->
+        <!--<item name="colorAccent">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorPrimary">@android:color/white</item>-->
+        <!--<item name="android:navigationBarColor">@color/status_bar</item>-->
+        <!--<item name="android:textColorSecondary">@android:color/white</item>-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="android:textColorSecondaryInverse">@color/buttonfill</item>-->
+    <!--</style>-->
+
+    <style name="FamilyTreeTheme" parent="AppTheme" >
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:buttonStyle">@style/ButtonColor</item>
+        <item name="android:editTextColor">@color/EditTextColor</item>
+        <item name="android:autoCompleteTextViewStyle">@style/autoCompleteTextViewStyle</item>
+        <item name="colorButtonNormal">@color/buttoncolor</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="ButtonColor" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/buttoncolor</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="BestDamTheme" parent="Theme.AppCompat" >
-        <item name="android:colorBackground" tools:ignore="PrivateResource">@color/background_material_light</item>
-        <item name="android:statusBarColor">@color/status_bar</item>
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:navigationBarColor">@color/status_bar</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:textColorSecondaryInverse">@color/buttonfill</item>
+    <style name="autoCompleteTextViewStyle" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="android:editTextColor">@color/EditTextColor</item>
     </style>
 
-    <style name="BestDamThemeNoToolbar" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:colorBackground" tools:ignore="PrivateResource">@color/background_material_light</item>
-        <item name="android:statusBarColor">@color/status_bar</item>
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:navigationBarColor">@color/status_bar</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:textColorSecondaryInverse">@color/buttonfill</item>
-    </style>
 
 </resources>
