@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/first_name_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="FirstName" />
-
-    <Button
-        android:id="@+id/add_connection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
-        android:text="Add Connection" />
+        android:layout_marginTop="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="132dp"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+            <TextView
+                android:id="@+id/name_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Full Name" />
+
+            <TextView
+                android:id="@+id/birthday_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Birthday" />
+
+            <TextView
+                android:id="@+id/city_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="City" />
+
+            <TextView
+                android:id="@+id/job_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job" />
+
+            <TextView
+                android:id="@+id/employer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Employer" />
+
+            <TextView
+                android:id="@+id/interests_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interests" />
+
+            <Button
+                android:id="@+id/edit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit" />
+
+            <Button
+                android:id="@+id/add_connection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="160dp"
+                android:text="Add Connection" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

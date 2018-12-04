@@ -26,6 +26,8 @@
             android:theme="@style/AppTheme.PersonTheme"/>
         <activity android:name=".NewPersonActivity"
             android:theme="@style/AppTheme.PersonTheme"/>
+        <activity android:name=".EditPersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
     </application>
 
 </manifest>

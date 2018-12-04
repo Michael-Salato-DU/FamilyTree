@@ -1,3 +1,4 @@
+//Tess Julien
 package familytree.a188project1.du.bestdamtree;
 
 import android.content.Context;
@@ -9,14 +10,13 @@ import android.widget.TextView;
 
 
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 public class TreeListAdapter extends RecyclerView.Adapter<TreeListAdapter.TreeViewHolder> {
     private Context context;
-    private RealmResults<Person> family;
+    private RealmList<Person> family;
     private RecyclerViewClickListener mListener;
 
-    public TreeListAdapter(Context context, RealmResults<Person> dataSet, RecyclerViewClickListener clickListener) {
+    public TreeListAdapter(Context context, RealmList<Person> dataSet, RecyclerViewClickListener clickListener) {
         this.context = context;
         this.family = dataSet;
         this.mListener = clickListener;
@@ -28,7 +28,7 @@ public class TreeListAdapter extends RecyclerView.Adapter<TreeListAdapter.TreeVi
         private RecyclerViewClickListener mListener;
         public TreeViewHolder(View v, RecyclerViewClickListener listener) {
             super(v);
-            firstNameView = v.findViewById(R.id.first_name_view);
+            firstNameView = v.findViewById(R.id.name_view);
             lastNameView = v.findViewById(R.id.last_name_view);
             mListener = listener;
             v.setOnClickListener(this);
