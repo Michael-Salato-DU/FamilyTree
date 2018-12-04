@@ -18,8 +18,24 @@
         <item name="android:textColor">@color/buttoncolor</item>
     </style>
 
+
     <style name="autoCompleteTextViewStyle" parent="@android:style/Widget.AutoCompleteTextView">
         <item name="android:editTextColor">@color/EditTextColor</item>
+
+    <!-- Theme for helpful hints pop up -->
+    <!-- Source for creating a theme for a pop up window
+         title: How To Create Pop Up Window In Android
+         author: Filip Vujovic
+         https://www.youtube.com/watch?v=fn5OlqQuOCk&list=FLDplgDwlwCvYtcIIncET1tA&index=2&t=0s -->
+    <style name="AppTheme.HelpfulHints" >
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     </style>
 
     <style name="FamilyTreeTheme" parent="AppThemeNoActionBar" >
