@@ -62,15 +62,5 @@
         <item name="android:autoCompleteTextViewStyle">@style/autoCompleteTextViewStyle</item>
         <item name="colorButtonNormal">@color/buttoncolor</item>
     </style>
-
-    <style name="ButtonColor" parent="@android:style/Widget.Button">
-        <item name="android:textColor">@color/buttoncolor</item>
-    </style>
-
-    <style name="autoCompleteTextViewStyle" parent="@android:style/Widget.AutoCompleteTextView">
-        <item name="android:editTextColor">@color/EditTextColor</item>
-    </style>
-
-
-
+    
 </resources>
