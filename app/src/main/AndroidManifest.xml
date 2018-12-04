@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".HelpfulHintsActivity"
+            android:theme="@style/AppTheme.HelpfulHints"/>
     </application>
 
 </manifest>

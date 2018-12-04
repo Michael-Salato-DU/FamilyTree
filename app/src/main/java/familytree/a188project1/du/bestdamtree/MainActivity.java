@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                         // Open up helpful hints
                         else if (menuItem.getTitle().equals("Helpful Hints")) {
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                            intent.putExtra("current_email", user.getEmail());
+                            Intent intent = new Intent(getBaseContext(), HelpfulHintsActivity.class);
+//                            intent.putExtra("current_email", user.getEmail());
                             startActivity(intent);
                         }
                         // Sign out and return to the login page
