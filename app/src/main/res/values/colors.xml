@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#d9b310</color>
-    <color name="colorPrimaryDark">#d9b310</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorSpotify">#1db954</color>
-    <color name="background_material_light" tools:ignore="PrivateResource">#1d2731</color>
+    <color name="colorPrimary">#677e52</color>
+    <color name="colorPrimaryDark">#2f550d</color>
+    <color name="colorAccent">#009688</color>
+    <color name="background_material_light" tools:ignore="PrivateResource">#f9fcce</color>
     <color name="colorBackground">#1D2731</color>
     <color name="PrimaryColor">#1d2731</color>
     <color name="status_bar">#0b3c5d</color>
-    <color name="buttonfill">#e7e7e8</color>
+    <color name="buttoncolor">#009688</color>
+    <color name="EditTextColor">#F3F5DF</color>
+    <color name="text_color_primary">#dd000000</color>
 </resources>
