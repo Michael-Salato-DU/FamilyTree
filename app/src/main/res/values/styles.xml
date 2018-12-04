@@ -21,6 +21,7 @@
 
     <style name="autoCompleteTextViewStyle" parent="@android:style/Widget.AutoCompleteTextView">
         <item name="android:editTextColor">@color/EditTextColor</item>
+    </style>
 
     <!-- Theme for helpful hints pop up -->
     <!-- Source for creating a theme for a pop up window
@@ -35,8 +36,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    </style>
 
     <style name="FamilyTreeTheme" parent="AppThemeNoActionBar" >
         <item name="colorPrimary">@color/colorPrimary</item>
