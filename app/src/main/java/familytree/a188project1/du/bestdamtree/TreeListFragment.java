@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,10 @@ public class TreeListFragment extends Fragment {
         TreeActivity treeActivity = (TreeActivity) this.getActivity();
         final RealmList<Person> family = treeActivity.testFam.getPeople();
         final TreeActivity activity = (TreeActivity) this.getActivity();
+        Log.d("refresh", "in RefreshList");
+        for (int i = 0; i<family.size(); i++){
+            Log.d("person", family.get(i).getFirstName());
+        }
 
         RecyclerViewClickListener listener = new RecyclerViewClickListener() {
             @Override

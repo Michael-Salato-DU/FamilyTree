@@ -119,6 +119,7 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                         public void execute(Realm realm) {
 
                             newPerson.setRealmID(realm.where(Person.class).findAll().sort("RealmID").last().getRealmID()+1);
+                            //newPerson.setRealmID(realm.where(Person.class).findAll().last().getRealmID()+1);
                             newPerson.setFirstName(firstNameView.getText().toString());
                             newPerson.setMiddleName(middleNameView.getText().toString());
                             newPerson.setLastName(lastNameView.getText().toString());
@@ -170,7 +171,7 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                             image.getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, baos);
                             byte[] imageInByte = baos.toByteArray();
                             newPerson.setImage(imageInByte);
-                            realm.copyToRealm(newPerson);
+                            realm.copyToRealmOrUpdate(newPerson);
                             RealmList<Person> familyMembers = family.getPeople();
                             familyMembers.add(newPerson);
                             family.setPeople(familyMembers);
