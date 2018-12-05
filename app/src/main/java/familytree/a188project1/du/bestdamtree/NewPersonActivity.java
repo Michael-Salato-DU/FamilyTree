@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -118,8 +119,9 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                         @Override
                         public void execute(Realm realm) {
 
-                            newPerson.setRealmID(realm.where(Person.class).findAll().sort("RealmID").last().getRealmID()+1);
+                            //newPerson.setRealmID(realm.where(Person.class).findAll().sort("RealmID").last().getRealmID()+1);
                             //newPerson.setRealmID(realm.where(Person.class).findAll().last().getRealmID()+1);
+                            newPerson.setRealmID(random());
                             newPerson.setFirstName(firstNameView.getText().toString());
                             newPerson.setMiddleName(middleNameView.getText().toString());
                             newPerson.setLastName(lastNameView.getText().toString());
@@ -152,7 +154,7 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                                 parents.add(person);
                                 parents.add(person.getSignificantOther());
                                 newPerson.setParents(parents);
-                                RealmList<Person> kids = new RealmList<Person>();
+                                RealmList<Person> kids = person.getKids();
                                 kids.add(newPerson);
                                 person.setKids(kids);
                                 realm.copyToRealmOrUpdate(person);
@@ -229,5 +231,16 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             pictureView.setImageBitmap(imageBitmap);
         }
+    }
+
+    public static String random(){
+        Random generator = new Random();
+        StringBuilder randomStringBuilder = new StringBuilder();
+        char newChar;
+        for (int i = 0; i <8; i++){
+            newChar = (char) (generator.nextInt(96)+32);
+            randomStringBuilder.append(newChar);
+        }
+        return randomStringBuilder.toString();
     }
 }
