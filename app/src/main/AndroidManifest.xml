@@ -3,6 +3,7 @@
     package="familytree.a188project1.du.bestdamtree">
 
     <application
+
         android:name=".FamilyTree"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +21,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".TreeActivity"
+            android:label="@string/title_activity_tree"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
+        <activity android:name=".NewPersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
+        <activity android:name=".EditPersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
         <activity android:name=".RegisterActivity"
             android:theme="@style/FamilyTreeTheme" />
         <activity android:name=".MainActivity"

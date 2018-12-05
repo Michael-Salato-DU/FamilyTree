@@ -1,3 +1,4 @@
+//Tess Julien
 package familytree.a188project1.du.bestdamtree;
 
 import io.realm.RealmList;
@@ -6,7 +7,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Person extends RealmObject{
     @PrimaryKey
-    private int RealmID;
+    private String RealmID;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -19,18 +20,17 @@ public class Person extends RealmObject{
     private String job;
     private String employer;
     private String city;
-    private String likes;
-    private String dislikes;
+    private String interests;
     private String notes;
     private boolean alive;
     private byte[] image;
 
 
-    public int getRealmID() {
+    public String getRealmID() {
         return RealmID;
     }
 
-    public void setRealmID(int realmID) {
+    public void setRealmID(String realmID) {
         RealmID = realmID;
     }
 
@@ -130,20 +130,12 @@ public class Person extends RealmObject{
         this.city = city;
     }
 
-    public String getLikes() {
-        return likes;
+    public String getInterests() {
+        return interests;
     }
 
-    public void setLikes(String likes) {
-        this.likes = likes;
-    }
-
-    public String getDislikes() {
-        return dislikes;
-    }
-
-    public void setDislikes(String dislikes) {
-        this.dislikes = dislikes;
+    public void setInterests(String interests) {
+        this.interests = interests;
     }
 
     public String getNotes() {

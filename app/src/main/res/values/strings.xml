@@ -1,4 +1,10 @@
 <resources>
+
+    <string name="title_activity_tree">TreeActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="app_name">Family Tree</string>
 
     <!-- strings for menu items for nav drawer -->
@@ -35,4 +41,5 @@
     <string name="title_activity_genre">genre</string>
     <string name="title_activity_Genre_selection">Genre Selection</string>
     <string name="title_activity_login">Family Tree :)</string>
+
 </resources>
