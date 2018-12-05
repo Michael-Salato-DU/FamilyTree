@@ -66,6 +66,6 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
     @Override
     public void onBindViewHolder(TreeViewHolder holder, int position) {
         // set tree name
-        holder.treeNameView.setText(treeList.get(position));
+        holder.treeNameView.setText(treeList.get(position).getName());
         }
 }
