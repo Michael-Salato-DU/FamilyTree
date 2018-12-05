@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- source for declaring menu items for the nav drawer: -->
+<!-- title: Create a navigation drawer: Declare the menu items for the nav drawer -->
+<!-- author: Android Developers Documentation -->
+<!-- https://developer.android.com/training/implementing-navigation/nav-drawer#MenuLayout -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_trees"
+            android:icon="@drawable/ic_nature_black_24dp"
+            android:title="@string/trees" />
+        <item
+            android:id="@+id/nav_helpful_hints"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="@string/hints" />
+        <item
+            android:id="@+id/nav_sign_out"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/sign_out" />
+    </group>
+</menu>
