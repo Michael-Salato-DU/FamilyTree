@@ -1,7 +1,7 @@
 <resources>
 
     <string name="title_activity_tree">TreeActivity</string>
-    <string name="app_name">Family Tree</string>
+    <string name="app_name">Branches</string>
 
     <!-- strings for menu items for nav drawer -->
     <string name="profile">Profile</string>
@@ -10,7 +10,7 @@
     <string name="sign_out">Sign Out</string>
 
     <!-- string for navigation menu header -->
-    <string name="header">Family Tree</string>
+    <string name="header">Branches</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -36,6 +36,6 @@
     <string name="Submit">Submit</string>
     <string name="title_activity_genre">genre</string>
     <string name="title_activity_Genre_selection">Genre Selection</string>
-    <string name="title_activity_login">Family Tree</string>
+    <string name="title_activity_login">Branches</string>
 
 </resources>

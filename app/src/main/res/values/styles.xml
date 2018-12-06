@@ -31,6 +31,7 @@
     <style name="AppTheme.HelpfulHints" >
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:background">#b7ca79</item>
     </style>
 
     <style name="FamilyTreeTheme" parent="AppThemeNoActionBar" >
@@ -54,9 +55,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppTheme.PersonTheme">
+    <style name="AppTheme.PersonTheme" parent="FamilyTreeTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:background">#b7ca79</item>
+        <item name="android:editTextColor">@android:color/black</item>
     </style>
 
 </resources>
