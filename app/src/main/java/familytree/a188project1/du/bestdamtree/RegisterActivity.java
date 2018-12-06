@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.Objects;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                             new_user.setPassword(password_input_string);
 
                             //Create its person class
+                            RealmList<Person> emptyList = new RealmList<Person>();
                             Person new_person = new Person();
                             new_person.setRealmID(random_string_generator());
                             new_person.setFirstName(first_name_input_string);
@@ -67,6 +69,8 @@ public class RegisterActivity extends AppCompatActivity {
                             new_person.setInterests("");
                             new_person.setMarried(false);
                             new_person.setAlive(true);
+                            new_person.setKids(emptyList);
+                            new_person.setParents(emptyList);
 
                             new_user.setPerson(new_person);
 
