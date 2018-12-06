@@ -32,7 +32,7 @@ public class QuizActivityReward extends AppCompatActivity {
         returnMainButton = (Button)findViewById(R.id.return_main_button);
 
         Realm realm = Realm.getDefaultInstance();
-
+        String family = getIntent().getStringExtra("family");
         String current_email = getIntent().getStringExtra("current_email");
         user = realm.where(User.class).equalTo("email",current_email).findFirst();
 
@@ -79,6 +79,7 @@ public class QuizActivityReward extends AppCompatActivity {
             public void onClick(View view) {
 
             Intent tree_activity = new Intent(getBaseContext(),TreeActivity.class);
+            tree_activity.putExtra("family",family);
             tree_activity.putExtra("current_email", user.getEmail());
             startActivity(tree_activity);
             finish();

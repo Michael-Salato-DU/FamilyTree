@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -117,6 +119,7 @@ public class QuizActivity extends AppCompatActivity {
                         question.Markme();
                         Intent reward_intent = new Intent(getBaseContext(),QuizActivityReward.class);
                         reward_intent.putExtra("current_email",user.getEmail());
+                        reward_intent.putExtra("family",family);
                         reward_intent.putExtra("quiz_count",totalitems);
                         reward_intent.putParcelableArrayListExtra("Quizzes", quizzes);
                         startActivity(reward_intent);
@@ -157,72 +160,75 @@ public class QuizActivity extends AppCompatActivity {
                 q.setCorrectAnswer(person.getFirstName());
                 return "Who is this?";
             case 1:
-                if(!person.getParents().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getParents().get(0).getFirstName());
                 }
-                else{
+                catch(ArrayIndexOutOfBoundsException a){
                     q.setCorrectAnswerId(3);
-                    q.setCorrectAnswer("None of these answers");}
+                    q.setCorrectAnswer("None of these answers");
+                }
                 return "Who is the parent of " + person.getFirstName() + "?";
             case 2:
-                if(!person.getInterests().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getInterests());
                 }
-                else{
+                catch(NullPointerException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
                 return "What is " + person.getFirstName()+ " " + person.getLastName() + " interests?";
             case 3:
-                if(!person.getCity().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getCity());
                 }
-                else{
+                catch(NullPointerException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
                 return "Where does " + person.getFirstName()+ " " + person.getLastName() + " currently lives?";
             case 4:
-                if(!person.getJob().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getJob());
                 }
-                else{
+                catch(NullPointerException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
                 return "What is " + person.getFirstName()+ " " + person.getLastName() + " job?";
             case 5:
-                if(!person.getKids().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getKids().get(0).getFirstName());
                 }
-                else{
+                catch(ArrayIndexOutOfBoundsException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
+
                 return "Name one of "+ person.getFirstName()+ " kid(s).";
             case 6:
-                if(!person.getBirthday().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getBirthday());
                 }
-                else{
+                catch(NullPointerException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
+
                 return "When is " + person.getFirstName()+ " " + person.getLastName() + " birthday?";
             case 7:
-                if(person.getSignificantOther()!= null){
+                try{
                     q.setCorrectAnswer(person.getSignificantOther().get(0).getFirstName());
                 }
-                else{
+                catch(ArrayIndexOutOfBoundsException a){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
                 return "Who is " + person.getFirstName()+ " " + person.getLastName() + " significant other?";
             case 8:
-                if(!person.getEmployer().isEmpty()){
+                try{
                     q.setCorrectAnswer(person.getEmployer());
                 }
-                else{
+                catch(NullPointerException n){
                     q.setCorrectAnswerId(3);
                     q.setCorrectAnswer("None of these answers");
                 }
@@ -239,99 +245,91 @@ public class QuizActivity extends AppCompatActivity {
 
             case 0:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getFirstName().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getFirstName();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 1:
 
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getParents().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getParents().get(0).getFirstName();
                     }
-                    else{
+                    catch (ArrayIndexOutOfBoundsException a){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 2:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getInterests().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getInterests();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 3:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getCity().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getCity();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 4:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getJob().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getJob();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 5:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getKids().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getKids().get(0).getFirstName();
                     }
-                    else{
+                    catch (ArrayIndexOutOfBoundsException a){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 6:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getBirthday().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getBirthday();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 7:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getSignificantOther().isEmpty()){
-                        answers[j] = persons.get(randomint[j]).getSignificantOther().get(0).getInterests();
+                    try{
+                        answers[j] = persons.get(randomint[j]).getSignificantOther().get(0).getFirstName();
                     }
-                    else{
+                    catch (ArrayIndexOutOfBoundsException a){
                         answers[j] = "None";
                     }
-
                 }
                 return answers;
             case 8:
                 for(int j=0; j<answers.length;j++){
-                    if(!persons.get(randomint[j]).getEmployer().isEmpty()){
+                    try{
                         answers[j] = persons.get(randomint[j]).getEmployer();
                     }
-                    else{
+                    catch (NullPointerException n){
                         answers[j] = "None";
                     }
                 }

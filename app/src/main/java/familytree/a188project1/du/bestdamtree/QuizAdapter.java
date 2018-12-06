@@ -32,55 +32,55 @@ public class QuizAdapter extends FragmentStatePagerAdapter{
                 question1.setQuestionNumber(i+1);
 //                question1.setImageQuiz(BitmapFactory.decodeByteArray(quizzes.get(i).getPerson().getImage(),
 //                        0,quizzes.get(i).getPerson().getImage().length));
-                question1.setImageQuiz(BitmapFactory.decodeResource(question1.getResources(), R.drawable.smile));
+//                question1.setImageQuiz(BitmapFactory.decodeResource(question1.getResources(), R.drawable.smile));
                 return question1;
             case 1:
                 QuizFragment question2 = new QuizFragment();
                 question2.quiz = quizzes.get(i);
                 question2.setQuestionNumber(i+1);
-                question2.setImageQuiz(BitmapFactory.decodeResource(question2.getResources(), R.drawable.parent));
+//                question2.setImageQuiz(BitmapFactory.decodeResource(question2.getResources(), R.drawable.parent));
                 return question2;
             case 2:
                 QuizFragment question3 = new QuizFragment();
                 question3.quiz = quizzes.get(i);
                 question3.setQuestionNumber(i+1);
-                question3.setImageQuiz(BitmapFactory.decodeResource(question3.getResources(), R.drawable.like));
+//                question3.setImageQuiz(BitmapFactory.decodeResource(question3.getResources(), R.drawable.like));
                 return question3;
             case 3:
                 QuizFragment question4 = new QuizFragment();
                 question4.quiz = quizzes.get(i);
                 question4.setQuestionNumber(i+1);
-                question4.setImageQuiz(BitmapFactory.decodeResource(question4.getResources(), R.drawable.house));
+//                question4.setImageQuiz(BitmapFactory.decodeResource(question4.getResources(), R.drawable.house));
                 return question4;
             case 4:
                 QuizFragment question5 = new QuizFragment();
                 question5.quiz = quizzes.get(i);
                 question5.setQuestionNumber(i+1);
-                question5.setImageQuiz(BitmapFactory.decodeResource(question5.getResources(), R.drawable.job));
+//                question5.setImageQuiz(BitmapFactory.decodeResource(question5.getResources(), R.drawable.job));
                 return question5;
             case 5:
                 QuizFragment question6 = new QuizFragment();
                 question6.quiz = quizzes.get(i);
                 question6.setQuestionNumber(i+1);
-                question6.setImageQuiz(BitmapFactory.decodeResource(question6.getResources(), R.drawable.kids));
+//                question6.setImageQuiz(BitmapFactory.decodeResource(question6.getResources(), R.drawable.kids));
                 return question6;
             case 6:
                 QuizFragment question7 = new QuizFragment();
                 question7.quiz = quizzes.get(i);
                 question7.setQuestionNumber(i+1);
-                question7.setImageQuiz(BitmapFactory.decodeResource(question7.getResources(), R.drawable.birthday));
+//                question7.setImageQuiz(BitmapFactory.decodeResource(question7.getResources(), R.drawable.birthday));
                 return question7;
             case 7:
                 QuizFragment question8 = new QuizFragment();
                 question8.quiz = quizzes.get(i);
                 question8.setQuestionNumber(i+1);
-                question8.setImageQuiz(BitmapFactory.decodeResource(question8.getResources(), R.drawable.sigother));
+//                question8.setImageQuiz(BitmapFactory.decodeResource(question8.getResources(), R.drawable.sigother));
                 return question8;
             case 8:
                 QuizFragment question9 = new QuizFragment();
                 question9.quiz = quizzes.get(i);
                 question9.setQuestionNumber(i+1);
-                question9.setImageQuiz(BitmapFactory.decodeResource(question9.getResources(), R.drawable.employer));
+//                question9.setImageQuiz(BitmapFactory.decodeResource(question9.getResources(), R.drawable.employer));
                 return question9;
             case 9:
                 QuizFragment question10 = new QuizFragment();
@@ -88,7 +88,7 @@ public class QuizAdapter extends FragmentStatePagerAdapter{
                 question10.setQuestionNumber(i+1);
 //                question10.setImageQuiz(BitmapFactory.decodeByteArray(quizzes.get(i).getPerson().getImage(),
 //                        0,quizzes.get(i).getPerson().getImage().length));
-                question10.setImageQuiz(BitmapFactory.decodeResource(question10.getResources(), R.drawable.smile));
+//                question10.setImageQuiz(BitmapFactory.decodeResource(question10.getResources(), R.drawable.smile));
                 return question10;
             default:
                 return null;
