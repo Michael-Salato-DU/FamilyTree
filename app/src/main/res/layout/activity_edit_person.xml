@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/picture_view"
+                android:layout_width="match_parent"
+                android:layout_height="105dp"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <EditText
+                android:id="@+id/first_name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="First Name" />
+
+            <EditText
+                android:id="@+id/middle_name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Middle Name" />
+
+            <EditText
+                android:id="@+id/last_name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Last Name" />
+
+            <EditText
+                android:id="@+id/suffix_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Suffix" />
+
+            <EditText
+                android:id="@+id/birthday_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Birthday" />
+
+            <EditText
+                android:id="@+id/city_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="City" />
+
+            <EditText
+                android:id="@+id/job_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Job/Major" />
+
+            <EditText
+                android:id="@+id/employer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Employer/School" />
+
+            <EditText
+                android:id="@+id/interests_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Interests" />
+
+            <CheckBox
+                android:id="@+id/married_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Married" />
+
+            <CheckBox
+                android:id="@+id/alive_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deceased" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

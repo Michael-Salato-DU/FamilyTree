@@ -3,6 +3,7 @@
     package="familytree.a188project1.du.bestdamtree">
 
     <application
+
         android:name=".FamilyTree"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/FamilyTreeTheme">
         <activity
-            android:name=".QuizActivity"
+            android:name=".LoginActivity"
             android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +21,23 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".TreeActivity"
+            android:label="@string/title_activity_tree"
+            android:theme="@style/FamilyTreeTheme" />
+        <activity android:name=".PersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
+        <activity android:name=".NewPersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
+        <activity android:name=".EditPersonActivity"
+            android:theme="@style/AppTheme.PersonTheme"/>
         <activity android:name=".RegisterActivity"
             android:theme="@style/FamilyTreeTheme" />
         <activity android:name=".MainActivity"
             android:theme="@style/FamilyTreeTheme" />
         <activity android:name=".HelpfulHintsActivity"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".LoginActivity"/>
+            android:theme="@style/AppTheme.HelpfulHints"/>
+        <activity android:name=".QuizActivity"/>
         <activity android:name=".QuizActivityAnswers"/>
         <activity android:name=".QuizActivityReward"/>
 

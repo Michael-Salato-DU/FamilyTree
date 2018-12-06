@@ -75,10 +75,28 @@ public class LoginActivity extends AppCompatActivity {
             public void execute(Realm realm) {
                 User admin = new User();
                 admin.setEmail("test@a.com");
-                admin.setFirst_name("John");
-                admin.setLast_name("Doe");
                 admin.setPassword("rr");
-                //TODO: Set fields for Person
+                admin.setFirst_name("Jacky");
+                admin.setLast_name("Smith");
+
+                // Creates a dummy Person
+                Person admin_person = new Person();
+                admin_person.setRealmID("AVSDSC52");
+                admin_person.setFirstName("Jacky");
+                admin_person.setLastName("Smith");
+
+                admin_person.setMiddleName("Bot");
+                admin_person.setOptionalSuffix("Dr.");
+                admin_person.setBirthday("1/2/3");
+                admin_person.setCity("Hogwarts");
+                admin_person.setJob("Magician");
+                admin_person.setEmployer("Monster University");
+                admin_person.setInterests("Scaring people");
+                admin_person.setMarried(false);
+                admin_person.setAlive(true);
+
+                admin.setPerson(admin_person);
+
                 realm.copyToRealmOrUpdate(admin);
             }
         });

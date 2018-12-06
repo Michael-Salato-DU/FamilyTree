@@ -9,27 +9,40 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import io.realm.RealmList;
+
 public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder> {
 
     // Declare variables
     private Context context;
-    private List<String> treeList;
+    private RealmList<Tree> treeList;
+    private RecyclerViewClickListener mListener;
 
-    // Constructor for TreeAdapter. Sets the context and list of trees.
-    public TreeAdapter(Context context, List<String> dataSet) {
+    // Constructor for TreeAdapter. Sets the context and list of trees (families).
+    public TreeAdapter(Context context, RealmList<Tree> dataSet, RecyclerViewClickListener clickListener) {
         this.context = context;
         this.treeList = dataSet;
+        this.mListener = clickListener;
     }
 
-    // TreeViewHolder - Class that ties view variable to view in xml document
-    public static class TreeViewHolder extends RecyclerView.ViewHolder {
+    // TreeViewHolder class
+    public static class TreeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // Declare view variable
         public TextView treeNameView;
+        private RecyclerViewClickListener mListener;
 
         // TreeViewHolder ties the view variable to the respective view in tree_name_cell.xml
-        public TreeViewHolder(View v) {
+        public TreeViewHolder(View v, RecyclerViewClickListener listener) {
             super(v);
             treeNameView = v.findViewById(R.id.tree_name_view);
+            mListener = listener;
+            v.setOnClickListener(this);
+        }
+
+        // Set onClick function for recycler view
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(view, getAdapterPosition());
         }
     }
 
@@ -45,7 +58,7 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.tree_name_cell, parent, false);
         // Call TreeViewHolder function
-        TreeViewHolder vh = new TreeViewHolder(v);
+        TreeViewHolder vh = new TreeViewHolder(v, mListener);
         return vh;
     }
 
@@ -53,6 +66,6 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
     @Override
     public void onBindViewHolder(TreeViewHolder holder, int position) {
         // set tree name
-        holder.treeNameView.setText(treeList.get(position));
+        holder.treeNameView.setText(treeList.get(position).getName());
         }
 }

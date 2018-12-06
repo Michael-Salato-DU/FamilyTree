@@ -35,7 +35,8 @@
                     android:imeOptions="normal"
                     android:inputType="textPersonName"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -50,7 +51,8 @@
                     android:hint="@string/lastname_register"
                     android:inputType="textPersonName"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -65,7 +67,8 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -83,7 +86,8 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -102,7 +106,8 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
 
             </android.support.design.widget.TextInputLayout>
 
