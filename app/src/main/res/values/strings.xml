@@ -36,6 +36,6 @@
     <string name="Submit">Submit</string>
     <string name="title_activity_genre">genre</string>
     <string name="title_activity_Genre_selection">Genre Selection</string>
-    <string name="title_activity_login">Family Tree :)</string>
+    <string name="title_activity_login">Family Tree</string>
 
 </resources>
