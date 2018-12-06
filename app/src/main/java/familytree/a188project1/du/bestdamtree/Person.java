@@ -6,6 +6,8 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Person extends RealmObject{
+
+    //declare variables
     @PrimaryKey
     private String RealmID;
     private String firstName;
@@ -25,7 +27,7 @@ public class Person extends RealmObject{
     private boolean alive;
     private byte[] image;
 
-
+    //getters and setters
     public String getRealmID() {
         return RealmID;
     }

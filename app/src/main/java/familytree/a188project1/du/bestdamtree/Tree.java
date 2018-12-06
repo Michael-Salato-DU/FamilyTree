@@ -7,11 +7,12 @@ import io.realm.annotations.PrimaryKey;
 
 public class Tree extends RealmObject{
 
+    //declare variables
     @PrimaryKey
     private String name;
     private RealmList<Person> people;
 
-
+    //getters and setters
     public RealmList<Person> getPeople() {
         return people;
     }
