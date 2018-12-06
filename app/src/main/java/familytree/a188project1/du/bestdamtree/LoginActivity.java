@@ -2,7 +2,6 @@
 
 package familytree.a188project1.du.bestdamtree;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.FileOutputStream;
 import java.util.Objects;
 
 import io.realm.Realm;
@@ -117,4 +115,3 @@ public class LoginActivity extends AppCompatActivity {
         return (email_check != null) && (Objects.equals(email_check.getPassword(),password));
     }
 }
-

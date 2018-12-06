@@ -1,5 +1,7 @@
 package familytree.a188project1.du.bestdamtree;
 
+//author: Johanan Tai
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ public class QuizActivityReward extends AppCompatActivity {
     private Button reviewAnsButton;
     private Button returnMainButton;
     public User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +43,13 @@ public class QuizActivityReward extends AppCompatActivity {
         ArrayList<Quiz> quizzes = getIntent().getParcelableArrayListExtra("Quizzes");
         int Count = getIntent().getIntExtra("quiz_count", quizzes.size());
 
+        //Evaluates quizzes response
         for(Quiz i: quizzes){
             if(i.getcorrect()){Score++;}
         }
 
         int percent = (Score*100)/Count;
         scoreView.setText(Integer.toString(percent)+"%");
-
 
         if(percent > 0 && percent < 40){
             trophyImageView.setImageResource(R.drawable.bronzetroph);
@@ -73,7 +76,7 @@ public class QuizActivityReward extends AppCompatActivity {
             startActivity(review_activity);
             }
         });
-
+        //returns to Tree Activity
         returnMainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +90,7 @@ public class QuizActivityReward extends AppCompatActivity {
         });
 
     }
-
+    //disabled back button so that user cannot go back to the last question
     @Override
     public void onBackPressed() {
     }

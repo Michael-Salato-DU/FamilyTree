@@ -2,7 +2,6 @@
 //random generator source: https://stackoverflow.com/questions/12116092/android-random-string-generator
 package familytree.a188project1.du.bestdamtree;
 
-//import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;

@@ -1,7 +1,8 @@
 package familytree.a188project1.du.bestdamtree;
 
-import android.graphics.Bitmap;
-import android.os.Parcel;
+//author: Johanan Tai
+
+import android.os.Parcel; //Parcelable to pass values through Intent putParcelableArrayListExtra and getParcelableArrayListExtra
 import android.os.Parcelable;
 
 import java.io.Serializable;
@@ -9,28 +10,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Quiz implements Serializable, Parcelable {
-    private String Type;
+    //Initialize all attributes of Quiz
+    private int Type;
     private String Question;
     private ArrayList<String> Answers;
     private int CorrectAnswer;
     private int userResponse;
     private boolean correct = false;
-    private Person person;
 
-    public Quiz(int correctAnswer){
+    //Constructor for Quiz class sets the correct Answer of Quiz
+    public Quiz(int type, int correctAnswer){
         this.CorrectAnswer = correctAnswer;
+        this.Type = type;
     }
 
     protected Quiz(Parcel in) {
-        Type = in.readString();
+        CorrectAnswer = in.readInt();
         Question = in.readString();
         Answers = in.createStringArrayList();
-        CorrectAnswer = in.readInt();
+        Type = in.readInt();
         userResponse = in.readInt();
         correct = in.readByte() != 0;
     }
 
-
+    //Had to be implemented for Parcelable
     public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {
         @Override
         public Quiz createFromParcel(Parcel in) {
@@ -43,11 +46,11 @@ public class Quiz implements Serializable, Parcelable {
         }
     };
 
-    public String getType(){
+    public int getType(){
         return this.Type;
     }
 
-    public void setType(String type){
+    public void setType(int type){
         this.Type = type;
     }
 
@@ -96,6 +99,7 @@ public class Quiz implements Serializable, Parcelable {
         return this.correct;
     }
 
+    //Check to see if the Quiz is answered correctly
     public boolean Markme(){
         if(this.userResponse == this.CorrectAnswer){
             this.correct = true;
@@ -106,13 +110,8 @@ public class Quiz implements Serializable, Parcelable {
             return false;
         }
     }
-    public void setPerson(Person p){
-        this.person = p;
-    }
-    public Person getPerson(){
-        return this.person;
-    }
 
+    //Another methods from the Parcelable class
     @Override
     public int describeContents() {
         return 0;
@@ -120,7 +119,7 @@ public class Quiz implements Serializable, Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(Type);
+        parcel.writeInt(Type);
         parcel.writeString(Question);
         parcel.writeStringList(Answers);
         parcel.writeInt(CorrectAnswer);

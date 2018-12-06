@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import io.realm.RealmList;
 
 public class TreeListAdapter extends RecyclerView.Adapter<TreeListAdapter.TreeViewHolder> {
@@ -48,7 +47,7 @@ public class TreeListAdapter extends RecyclerView.Adapter<TreeListAdapter.TreeVi
 
     @Override
     public TreeListAdapter.TreeViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = (View) LayoutInflater.from(parent.getContext()).inflate(R.layout.tree_cell, parent, false);
+        View v = (View) LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_tree, parent, false);
         TreeViewHolder vh = new TreeViewHolder(v, mListener);
         return vh;
     }

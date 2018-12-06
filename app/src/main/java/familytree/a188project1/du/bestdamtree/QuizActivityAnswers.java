@@ -1,5 +1,7 @@
 package familytree.a188project1.du.bestdamtree;
 
+//author: Johanan Tai
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//this activity is created so that the user can review what went wrong
 
 public class QuizActivityAnswers extends AppCompatActivity {
     private RecyclerView answerlist;
