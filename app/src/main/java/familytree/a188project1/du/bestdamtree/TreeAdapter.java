@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
 import io.realm.RealmList;
 
 public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder> {
@@ -31,7 +29,7 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
         public TextView treeNameView;
         private RecyclerViewClickListener mListener;
 
-        // TreeViewHolder ties the view variable to the respective view in tree_name_cell.xml
+        // TreeViewHolder ties the view variable to the respective view in cell_tree_name.xml
         public TreeViewHolder(View v, RecyclerViewClickListener listener) {
             super(v);
             treeNameView = v.findViewById(R.id.tree_name_view);
@@ -56,7 +54,7 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
     public TreeAdapter.TreeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = (View) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.tree_name_cell, parent, false);
+                .inflate(R.layout.cell_tree_name, parent, false);
         // Call TreeViewHolder function
         TreeViewHolder vh = new TreeViewHolder(v, mListener);
         return vh;

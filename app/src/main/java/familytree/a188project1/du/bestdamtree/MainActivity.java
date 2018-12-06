@@ -2,8 +2,6 @@ package familytree.a188project1.du.bestdamtree;
 
 import android.content.Intent;
 
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,7 +19,6 @@ import android.widget.Button;
 
 import io.realm.Realm;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 

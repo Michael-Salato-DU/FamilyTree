@@ -1,7 +1,6 @@
 //Tess Julien
 package familytree.a188project1.du.bestdamtree;
 
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
