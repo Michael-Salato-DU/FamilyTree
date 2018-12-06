@@ -1,5 +1,6 @@
 package familytree.a188project1.du.bestdamtree;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -14,6 +15,7 @@ public class Quiz implements Serializable, Parcelable {
     private int CorrectAnswer;
     private int userResponse;
     private boolean correct = false;
+    private Person person;
 
     public Quiz(int correctAnswer){
         this.CorrectAnswer = correctAnswer;
@@ -27,6 +29,7 @@ public class Quiz implements Serializable, Parcelable {
         userResponse = in.readInt();
         correct = in.readByte() != 0;
     }
+
 
     public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {
         @Override
@@ -70,7 +73,9 @@ public class Quiz implements Serializable, Parcelable {
 
     public void setCorrectAnswer(String correctAnswer){
         this.Answers.add(this.CorrectAnswer, correctAnswer);
-
+    }
+    public void setCorrectAnswerId(int i){
+        this.CorrectAnswer = i;
     }
 
     public String getuserAnswer(){
@@ -100,6 +105,12 @@ public class Quiz implements Serializable, Parcelable {
             this.correct = false;
             return false;
         }
+    }
+    public void setPerson(Person p){
+        this.person = p;
+    }
+    public Person getPerson(){
+        return this.person;
     }
 
     @Override
