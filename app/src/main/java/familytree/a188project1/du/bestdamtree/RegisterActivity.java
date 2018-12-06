@@ -12,6 +12,8 @@ import java.util.Objects;
 
 import io.realm.Realm;
 
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
+
 public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,14 @@ public class RegisterActivity extends AppCompatActivity {
                             new_user.setLast_name(last_name_input_string);
                             new_user.setEmail(email_input_string);
                             new_user.setPassword(password_input_string);
+
+                            //Create its person class
+                            Person new_person = new Person();
+                            new_person.setRealmID(random_string_generator());
+                            new_person.setFirstName(first_name_input_string);
+                            new_person.setLastName(last_name_input_string);
+                            new_user.setPerson(new_person);
+
                             realm.copyToRealmOrUpdate(new_user);
                         }
                         });
@@ -71,5 +81,9 @@ public class RegisterActivity extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
         User email_check = realm.where(User.class).equalTo("email",email).findFirst();
         return (email_check == null) && (Objects.equals(password,confirm_password));
+    }
+
+    public String random_string_generator() {
+        return randomAlphanumeric(10);
     }
 }
