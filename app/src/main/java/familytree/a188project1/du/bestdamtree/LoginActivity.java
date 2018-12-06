@@ -21,7 +21,7 @@ import io.realm.RealmResults;
 public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Set Title
+        // Set Title
         super.setTitle(R.string.title_activity_login);
         Realm realm = Realm.getDefaultInstance();
         final RealmResults<User> users = realm.where(User.class).findAll();
@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void generateAdmin() {
+        // Generates a sample user and person for app use.
         Realm realm = Realm.getDefaultInstance();
         realm.executeTransaction(new Realm.Transaction(){
             @Override
@@ -107,6 +108,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean checkLogin(String email, String password)
     {
+        /*  Check if login attempt is valid. Valid if:
+         *    1) Email exists in the database
+         *    2) Entered password matches the password tied with the user
+         */
         Realm realm = Realm.getDefaultInstance();
         User email_check = realm.where(User.class).equalTo("email",email).findFirst();
         return (email_check != null) && (Objects.equals(email_check.getPassword(),password));

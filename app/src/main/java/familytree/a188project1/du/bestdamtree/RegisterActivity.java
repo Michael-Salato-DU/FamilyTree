@@ -52,14 +52,14 @@ public class RegisterActivity extends AppCompatActivity {
                             new_user.setEmail(email_input_string);
                             new_user.setPassword(password_input_string);
 
-                            //Create its person class
+                            // Create its person class
                             RealmList<Person> emptyList = new RealmList<Person>();
                             Person new_person = new Person();
                             new_person.setRealmID(random_string_generator());
                             new_person.setFirstName(first_name_input_string);
                             new_person.setLastName(last_name_input_string);
 
-                            //From here onwards they have to set it themselves in the profile page
+                            // From here onwards they have to set it themselves in the profile page
                             new_person.setMiddleName("");
                             new_person.setOptionalSuffix("");
                             new_person.setBirthday("");
@@ -94,12 +94,17 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean checkRegister(String email, String password, String confirm_password)
     {
+        /*Checks if Register credentials are valid. Valid if:
+        * 1) Email does not exist in database
+        * 2) Entered password matches the "confirm password" field
+        */
         Realm realm = Realm.getDefaultInstance();
         User email_check = realm.where(User.class).equalTo("email",email).findFirst();
         return (email_check == null) && (Objects.equals(password,confirm_password));
     }
 
     public String random_string_generator() {
+        /* Generates an alphanumeric string for Realm ID */
         return randomAlphanumeric(10);
     }
 }
