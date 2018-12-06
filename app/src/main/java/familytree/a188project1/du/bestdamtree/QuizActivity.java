@@ -94,7 +94,7 @@ public class QuizActivity extends AppCompatActivity {
         dialogStop.setMessage("Please select an answer.");
         dialogStop.setCancelable(true);
         dialogStop.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {dialogInterface.cancel();}
+            public void onClick(DialogInterface dialog, int i) {dialog.cancel();}
         });
 
         AlertDialog alertStop = dialogStop.create();

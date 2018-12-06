@@ -1,6 +1,8 @@
 //Tess Julien and Michael Salato
 package familytree.a188project1.du.bestdamtree;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -108,14 +110,33 @@ public class TreeActivity extends AppCompatActivity {
         // Set family name in the toolbar
         super.setTitle(testFam.getName() + " Family");
 
+        AlertDialog.Builder insufficient_resources = new AlertDialog.Builder(this);
+        insufficient_resources.setMessage("You mush have at least 4 persons in the tree to take the quiz.");
+        insufficient_resources.setCancelable(true);
+        insufficient_resources.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertinsufficientResources = insufficient_resources.create();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), QuizActivity.class);
-                intent.putExtra("family", testFam.getName());
-                intent.putExtra("current_email", user.getEmail());
-                startActivity(intent);
+                if(testFam.getPeople().size() < 4){
+                    alertinsufficientResources.show();
+                }
+                else{
+                    Intent intent = new Intent(getBaseContext(), QuizActivity.class);
+                    intent.putExtra("family", testFam.getName());
+                    intent.putExtra("current_email", user.getEmail());
+                    startActivity(intent);
+                }
+
             }
         });
 
