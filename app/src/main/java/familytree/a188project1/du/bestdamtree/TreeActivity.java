@@ -1,4 +1,4 @@
-//Tess Julien
+//Tess Julien and Michael Salato
 package familytree.a188project1.du.bestdamtree;
 
 import android.content.Intent;
@@ -26,6 +26,7 @@ import io.realm.RealmResults;
 
 public class TreeActivity extends AppCompatActivity {
 
+    //declare variables
     private RecyclerView treeList;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter treeAdapter;
@@ -38,6 +39,7 @@ public class TreeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tree);
 
+        //get intent extras
         Realm realm = Realm.getDefaultInstance();
         String family = (String) getIntent().getStringExtra("family");
         testFam = realm.where(Tree.class).equalTo("name", family).findFirst();
@@ -127,32 +129,6 @@ public class TreeActivity extends AppCompatActivity {
         treeList.setLayoutManager(layoutManager);
         refreshList();
 
-        /*
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText(family));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        final ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
-        final TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-        }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-        */
-
     }
 
     // source for opening the navigation drawer when the "hamburger menu" is tapped:
@@ -175,17 +151,16 @@ public class TreeActivity extends AppCompatActivity {
         refreshList();
     }
 
+    //update list function
     private void refreshList(){
         Realm realm = Realm.getDefaultInstance();
         final RealmList<Person> family = testFam.getPeople();
-        Log.d("refresh", "in RefreshList");
-        for (int i = 0; i<family.size(); i++){
-            Log.d("person", family.get(i).getFirstName());
-        }
 
+        //open person activity when item is selected
         RecyclerViewClickListener listener = new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
+                //pass person and tree to person activity
                 Person person = (Person)family.get(position);
                 Intent intent = new Intent(view.getContext(), PersonActivity.class);
                 intent.putExtra("person",person.getRealmID());

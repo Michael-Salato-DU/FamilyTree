@@ -12,6 +12,7 @@ import android.widget.TextView;
 import io.realm.RealmList;
 
 public class TreeListAdapter extends RecyclerView.Adapter<TreeListAdapter.TreeViewHolder> {
+    //declare variables
     private Context context;
     private RealmList<Person> family;
     private RecyclerViewClickListener mListener;

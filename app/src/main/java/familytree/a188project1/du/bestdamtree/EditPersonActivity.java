@@ -21,6 +21,7 @@ import io.realm.Realm;
 
 public class EditPersonActivity extends AppCompatActivity{
 
+    //declare variables
     private Person person;
     private ImageView pictureView;
     private EditText firstNameView;
@@ -43,13 +44,16 @@ public class EditPersonActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_edit_person);
 
+        //get screen size
         DisplayMetrics screenSize = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(screenSize);
         int width = screenSize.widthPixels;
         int height = screenSize.heightPixels;
 
+        //set pop up card size
         getWindow().setLayout((int)(width*.85), (int)(height*.85));
 
+        //link variables to views from layout file
         pictureView = (ImageView) findViewById(R.id.picture_view);
         firstNameView = (EditText) findViewById(R.id.first_name_view);
         middleNameView = (EditText) findViewById(R.id.middle_name_view);
@@ -64,10 +68,12 @@ public class EditPersonActivity extends AppCompatActivity{
         aliveView = (CheckBox) findViewById(R.id.alive_view);
         saveButton = (Button) findViewById(R.id.save_button);
 
+        //get person from intent
         realm = Realm.getDefaultInstance();
         String personID = (String) getIntent().getStringExtra("person");
         person = realm.where(Person.class).equalTo("RealmID", personID).findFirst();
 
+        //open camera when image view is clicked
         pictureView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +84,7 @@ public class EditPersonActivity extends AppCompatActivity{
             }
         });
 
+        //set views based on attributes of person, if person's attribute is not filled, do not enter it into the corresponding view
         if (!person.getFirstName().matches("")){
             firstNameView.setText(person.getFirstName());
         }
@@ -113,18 +120,20 @@ public class EditPersonActivity extends AppCompatActivity{
             aliveView.setChecked(true);
         }
 
+        //what happens when save button is clicked
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 realm.executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
-                        //add if statements
+                        //set person's image
                         BitmapDrawable image = (BitmapDrawable) pictureView.getDrawable();
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         image.getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] imageInByte = baos.toByteArray();
                         person.setImage(imageInByte);
+                        //if view has been changed, update person's corresponding attribute
                         if (!firstNameView.getText().toString().matches("First Name")){
                             person.setFirstName(firstNameView.getText().toString());
                         }
@@ -153,9 +162,12 @@ public class EditPersonActivity extends AppCompatActivity{
                             person.setInterests(interestsView.getText().toString());
                         }
 
+                        //set married attribute based on checkbox status
                         person.setMarried(marriedCheckbox.isChecked());
+                        //set alive attribute based on checkbox status
                         person.setAlive(!aliveView.isChecked());
 
+                        //update person in realm
                         realm.copyToRealmOrUpdate(person);
                         finish();
                     }
@@ -165,6 +177,7 @@ public class EditPersonActivity extends AppCompatActivity{
 
     }
 
+    //return image from camera
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

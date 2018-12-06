@@ -22,6 +22,7 @@ import io.realm.RealmResults;
 
 public class TreeListFragment extends Fragment {
 
+    //declare variables
     private RecyclerView treeList;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter treeAdapter;
@@ -52,16 +53,14 @@ public class TreeListFragment extends Fragment {
         refreshList();
     }
 
+    //update list
     private void refreshList(){
         Realm realm = Realm.getDefaultInstance();
         TreeActivity treeActivity = (TreeActivity) this.getActivity();
         final RealmList<Person> family = treeActivity.testFam.getPeople();
         final TreeActivity activity = (TreeActivity) this.getActivity();
-        Log.d("refresh", "in RefreshList");
-        for (int i = 0; i<family.size(); i++){
-            Log.d("person", family.get(i).getFirstName());
-        }
 
+        //pass person and tree to person activity
         RecyclerViewClickListener listener = new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
