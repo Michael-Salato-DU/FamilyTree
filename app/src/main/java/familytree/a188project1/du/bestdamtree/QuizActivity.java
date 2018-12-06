@@ -239,51 +239,105 @@ public class QuizActivity extends AppCompatActivity {
 
             case 0:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getFirstName();
+                    if(!persons.get(randomint[j]).getFirstName().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getFirstName();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 1:
+
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getParents().get(0).getFirstName();
+                    if(!persons.get(randomint[j]).getParents().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getParents().get(0).getFirstName();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 2:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getInterests();
+                    if(!persons.get(randomint[j]).getInterests().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getInterests();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 3:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getCity();
+                    if(!persons.get(randomint[j]).getCity().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getCity();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 4:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getJob();
+                    if(!persons.get(randomint[j]).getJob().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getJob();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 5:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getKids().get(0).getFirstName();
+                    if(!persons.get(randomint[j]).getKids().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getKids().get(0).getFirstName();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 6:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getBirthday();
+                    if(!persons.get(randomint[j]).getBirthday().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getBirthday();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 7:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getSignificantOther().get(0).getInterests();
+                    if(!persons.get(randomint[j]).getSignificantOther().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getSignificantOther().get(0).getInterests();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
+
                 }
                 return answers;
             case 8:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getEmployer();
+                    if(!persons.get(randomint[j]).getEmployer().isEmpty()){
+                        answers[j] = persons.get(randomint[j]).getEmployer();
+                    }
+                    else{
+                        answers[j] = "None";
+                    }
                 }
                 return answers;
         }
-        return null;
+        return answers;
     }
 
 }
