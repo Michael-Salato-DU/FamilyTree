@@ -1,11 +1,14 @@
 package familytree.a188project1.du.bestdamtree;
 
 
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,12 +20,15 @@ import android.widget.TextView;
 public class QuizFragment extends Fragment {
     public Quiz quiz;
     private TextView questionView;
+    private ImageView imageView;
     private RadioGroup answersGroup;
     private RadioButton answerA;
     private RadioButton answerB;
     private RadioButton answerC;
     private RadioButton answerD;
+
     private int QuestionNumber;
+    private Bitmap imageQuiz;
 
     public QuizFragment() {
         // Required empty public constructor
@@ -34,6 +40,7 @@ public class QuizFragment extends Fragment {
         View view = inflater.inflate(R.layout.quiz_view, container, false);
 
         questionView = (TextView) view.findViewById(R.id.question_text);
+        imageView = (ImageView) view.findViewById(R.id.image_quiz);
         answersGroup = (RadioGroup) view.findViewById(R.id.answers_group);
         answerA = (RadioButton) view.findViewById(R.id.answer_button_a);
         answerB = (RadioButton) view.findViewById(R.id.answer_button_b);
@@ -41,6 +48,7 @@ public class QuizFragment extends Fragment {
         answerD = (RadioButton) view.findViewById(R.id.answer_button_d);
 
         questionView.setText(Integer.toString(this.QuestionNumber)+". " +quiz.getQuestion());
+        imageView.setImageBitmap(imageQuiz);
         answerA.setText(quiz.getAnswer(0));
         answerB.setText(quiz.getAnswer(1));
         answerC.setText(quiz.getAnswer(2));
@@ -69,5 +77,8 @@ public class QuizFragment extends Fragment {
     }
     public void setQuestionNumber(int i){
         this.QuestionNumber = i;
+    }
+    public void setImageQuiz(Bitmap img){
+        this.imageQuiz = img;
     }
 }
