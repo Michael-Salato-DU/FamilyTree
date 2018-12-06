@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import io.realm.Realm;
+
 
 public class QuizActivityReward extends AppCompatActivity {
     private ImageView trophyImageView;
@@ -17,7 +19,7 @@ public class QuizActivityReward extends AppCompatActivity {
     private TextView commentView;
     private Button reviewAnsButton;
     private Button returnMainButton;
-
+    public User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,10 @@ public class QuizActivityReward extends AppCompatActivity {
         reviewAnsButton = (Button) findViewById(R.id.answers_review_button);
         returnMainButton = (Button)findViewById(R.id.return_main_button);
 
+        Realm realm = Realm.getDefaultInstance();
+
+        String current_email = getIntent().getStringExtra("current_email");
+        user = realm.where(User.class).equalTo("email",current_email).findFirst();
 
         int Score = 0;
         ArrayList<Quiz> quizzes = getIntent().getParcelableArrayListExtra("Quizzes");
@@ -71,8 +77,10 @@ public class QuizActivityReward extends AppCompatActivity {
         returnMainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent main_activity = new Intent(getBaseContext(),MainActivity.class);
-            startActivity(main_activity);
+
+            Intent tree_activity = new Intent(getBaseContext(),TreeActivity.class);
+            tree_activity.putExtra("current_email", user.getEmail());
+            startActivity(tree_activity);
             finish();
             }
         });

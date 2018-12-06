@@ -11,16 +11,15 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import io.realm.Realm;
 import io.realm.RealmList;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 
 public class QuizActivity extends AppCompatActivity {
 
     public ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
     private Button nextButton;
-
+    public User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +50,13 @@ public class QuizActivity extends AppCompatActivity {
         quizzes.add(quiz9);
         quizzes.add(quiz10);
 
-        RealmList<Person> persons = new RealmList<Person>();
+        Realm realm = Realm.getDefaultInstance();
+        String family = getIntent().getStringExtra("family");
+        String current_email = getIntent().getStringExtra("current_email");
+
+        user = realm.where(User.class).equalTo("email",current_email).findFirst();
+        Tree tree = realm.where(Tree.class).equalTo("name",family).findFirst();
+        RealmList<Person> persons = tree.getPeople();
 
         int questionNumber = 0;
         int randomNum = ThreadLocalRandom.current().nextInt(0, persons.size()-1);
@@ -111,6 +116,7 @@ public class QuizActivity extends AppCompatActivity {
                     else if (count == totalitems){
                         question.Markme();
                         Intent reward_intent = new Intent(getBaseContext(),QuizActivityReward.class);
+                        reward_intent.putExtra("current_email",user.getEmail());
                         reward_intent.putExtra("quiz_count",totalitems);
                         reward_intent.putParcelableArrayListExtra("Quizzes", quizzes);
                         startActivity(reward_intent);
@@ -159,8 +165,8 @@ public class QuizActivity extends AppCompatActivity {
                     q.setCorrectAnswer("None of these answers");}
                 return "Who is the parent of " + person.getFirstName() + "?";
             case 2:
-                if(!person.getLikes().isEmpty()){
-                    q.setCorrectAnswer(person.getLikes());
+                if(!person.getInterests().isEmpty()){
+                    q.setCorrectAnswer(person.getInterests());
                 }
                 else{
                     q.setCorrectAnswerId(3);
@@ -205,7 +211,7 @@ public class QuizActivity extends AppCompatActivity {
                 return "When is " + person.getFirstName()+ " " + person.getLastName() + " birthday?";
             case 7:
                 if(person.getSignificantOther()!= null){
-                    q.setCorrectAnswer(person.getSignificantOther().getFirstName());
+                    q.setCorrectAnswer(person.getSignificantOther().get(0).getFirstName());
                 }
                 else{
                     q.setCorrectAnswerId(3);
@@ -243,7 +249,7 @@ public class QuizActivity extends AppCompatActivity {
                 return answers;
             case 2:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getLikes();
+                    answers[j] = persons.get(randomint[j]).getInterests();
                 }
                 return answers;
             case 3:
@@ -268,7 +274,7 @@ public class QuizActivity extends AppCompatActivity {
                 return answers;
             case 7:
                 for(int j=0; j<answers.length;j++){
-                    answers[j] = persons.get(randomint[j]).getSignificantOther().getFirstName();
+                    answers[j] = persons.get(randomint[j]).getSignificantOther().get(0).getInterests();
                 }
                 return answers;
             case 8:

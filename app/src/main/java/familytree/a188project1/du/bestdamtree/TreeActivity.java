@@ -115,6 +115,7 @@ public class TreeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), QuizActivity.class);
                 intent.putExtra("family", testFam.getName());
+                intent.putExtra("current_email", user.getEmail());
                 startActivity(intent);
             }
         });
