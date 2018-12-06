@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.util.Objects;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class LoginActivity extends AppCompatActivity {
@@ -77,13 +78,13 @@ public class LoginActivity extends AppCompatActivity {
                 admin.setEmail("test@a.com");
                 admin.setPassword("rr");
                 admin.setFirst_name("Jacky");
-                admin.setLast_name("Smith");
+                admin.setLast_name("Chan");
 
                 // Creates a dummy Person
                 Person admin_person = new Person();
                 admin_person.setRealmID("AVSDSC52");
                 admin_person.setFirstName("Jacky");
-                admin_person.setLastName("Smith");
+                admin_person.setLastName("Chan");
 
                 admin_person.setMiddleName("Bot");
                 admin_person.setOptionalSuffix("Dr.");
@@ -94,8 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                 admin_person.setInterests("Scaring people");
                 admin_person.setMarried(false);
                 admin_person.setAlive(true);
+                RealmList<Person> kids = new RealmList<Person>();
+                admin_person.setKids(kids);
+                RealmList<Person> parents = new RealmList<Person>();
+                admin_person.setParents(parents);
 
                 admin.setPerson(admin_person);
+
+
 
                 realm.copyToRealmOrUpdate(admin);
             }

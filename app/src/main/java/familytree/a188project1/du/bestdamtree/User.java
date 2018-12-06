@@ -11,6 +11,7 @@ public class User extends RealmObject{
     private String last_name;
     private String password;
     private Person person;
+    private RealmList<Tree> trees;
 
     public String getEmail() {
         return email;
@@ -52,4 +53,11 @@ public class User extends RealmObject{
         this.person = person;
     }
 
+    public RealmList<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(RealmList<Tree> trees) {
+        this.trees = trees;
+    }
 }

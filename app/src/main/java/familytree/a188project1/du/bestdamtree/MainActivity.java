@@ -44,13 +44,15 @@ public class MainActivity extends AppCompatActivity {
         String currentEmail = (String) getIntent().getStringExtra("current_email");
         user = realm.where(User.class).equalTo("email", currentEmail).findFirst();
 
-        // Get a RealmList of all the family trees for this user
-        final RealmResults<Tree> trees = realm.where(Tree.class).findAll();
-        familyList = new RealmList<Tree>();
-        familyList.addAll(trees.subList(0, trees.size()));
+        // Get a RealmList of all the family trees associated with this user
+//        final RealmResults<Tree> trees = realm.where(Tree.class).findAll();
+//        final RealmResults<Tree> trees = user.getTrees();
+//        familyList = new RealmList<Tree>();
+        familyList = user.getTrees();
+//        familyList.addAll(trees.subList(0, trees.size()));
         // Populate family trees if there are none yet
         if (familyList.size() == 0) {
-            populateEvents();
+            populateTree();
         }
 
         // Log for checking that the correct User is active
@@ -118,14 +120,33 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        // Open an activity to create a new tree when the "New Tree" button is clicked
+        // Open an activity to create a new tree (family) when the "New Tree" button is clicked
         newTreeButton = (Button) findViewById(R.id.new_tree_button);
         newTreeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
-                intent.putExtra("current_email", user.getEmail());
-                startActivity(intent);
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        // Create a new family with just this user's person information
+                        Tree newFam = new Tree();
+                        newFam.setName(user.getPerson().getLastName()); // set name of family to this user's last name
+                        RealmList<Person> testFamMembers = new RealmList<Person>();
+                        testFamMembers.add(user.getPerson());
+                        newFam.setPeople(testFamMembers);
+                        realm.copyToRealmOrUpdate(newFam);
+//                        familyList.add(newFam);
+//                        realm.copyToRealmOrUpdate(familyList);
+                        user.getTrees().add(newFam);
+                        realm.copyToRealmOrUpdate(user);
+
+                        // Pass tree name and user email to the next activity
+                        Intent intent = new Intent(view.getContext(), TreeActivity.class);
+                        intent.putExtra("family", newFam.getName());
+                        intent.putExtra("current_email", user.getEmail());
+                        startActivity(intent);
+                    }
+                });
             }
         });
 
@@ -168,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void populateEvents() {
+    public void populateTree() {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -361,8 +382,10 @@ public class MainActivity extends AppCompatActivity {
                 testFamMembers.add(person17);
                 testFam.setPeople(testFamMembers);
                 realm.copyToRealmOrUpdate(testFam);
-                familyList.add(testFam);
-                realm.copyToRealmOrUpdate(familyList);
+//                familyList.add(testFam);
+//                realm.copyToRealmOrUpdate(familyList);
+                user.getTrees().add(testFam);
+                realm.copyToRealmOrUpdate(user);
             }
         });
     }
