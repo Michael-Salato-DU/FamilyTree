@@ -56,13 +56,8 @@ public class MainActivity extends AppCompatActivity {
         // Log for checking that the correct User is active
         Log.d("UserEmail", user.getEmail());
 
-        // source for setting the toolbar as the action bar:
-        // title: Create a navigation drawer: Set the toolbar as the action bar
-        // author: Android Developers Documentation
-        // https://developer.android.com/training/implementing-navigation/nav-drawer#SetToolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // end source
 
         // source for adding the nav drawer button, a.k.a "hamburger menu"
         // title: Create a navigation drawer: Add the nav drawer button

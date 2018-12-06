@@ -24,7 +24,7 @@
         <activity
             android:name=".TreeActivity"
             android:label="@string/title_activity_tree"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/FamilyTreeTheme" />
         <activity android:name=".PersonActivity"
             android:theme="@style/AppTheme.PersonTheme"/>
         <activity android:name=".NewPersonActivity"
