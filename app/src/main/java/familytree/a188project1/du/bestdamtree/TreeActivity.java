@@ -107,6 +107,7 @@ public class TreeActivity extends AppCompatActivity {
                 }
         );
 
+        // Set family name in the toolbar
         super.setTitle(testFam.getName() + " Family");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

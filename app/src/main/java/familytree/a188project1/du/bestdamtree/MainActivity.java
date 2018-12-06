@@ -118,12 +118,24 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        // Open an activity to create a new tree when the "New Tree" button is clicked
+        // Open an activity to create a new tree (family) when the "New Tree" button is clicked
         newTreeButton = (Button) findViewById(R.id.new_tree_button);
         newTreeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                // Create a new family with just this user's person information
+                Tree newFam = new Tree();
+                newFam.setName(user.getPerson().getLastName()); // set name of family to this user's last name
+                RealmList<Person> testFamMembers = new RealmList<Person>();
+                testFamMembers.add(user.getPerson());
+                newFam.setPeople(testFamMembers);
+                realm.copyToRealmOrUpdate(newFam);
+                familyList.add(newFam);
+                realm.copyToRealmOrUpdate(familyList);
+
+                // Pass tree name and user email to the next activity
+                Intent intent = new Intent(view.getContext(), TreeActivity.class);
+                intent.putExtra("family", newFam.getName());
                 intent.putExtra("current_email", user.getEmail());
                 startActivity(intent);
             }
