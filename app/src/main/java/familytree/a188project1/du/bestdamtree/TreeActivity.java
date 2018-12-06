@@ -107,6 +107,8 @@ public class TreeActivity extends AppCompatActivity {
                 }
         );
 
+        super.setTitle(testFam.getName() + " Family");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +165,12 @@ public class TreeActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshList();
     }
 
     private void refreshList(){
