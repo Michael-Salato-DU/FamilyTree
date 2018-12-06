@@ -1,4 +1,5 @@
 //Tess Julien
+//random generator tutorial: https://stackoverflow.com/questions/12116092/android-random-string-generator
 package familytree.a188project1.du.bestdamtree;
 
 //import android.app.Activity;
@@ -119,18 +120,56 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                         @Override
                         public void execute(Realm realm) {
 
-                            //newPerson.setRealmID(realm.where(Person.class).findAll().sort("RealmID").last().getRealmID()+1);
-                            //newPerson.setRealmID(realm.where(Person.class).findAll().last().getRealmID()+1);
                             newPerson.setRealmID(random());
                             newPerson.setFirstName(firstNameView.getText().toString());
-                            newPerson.setMiddleName(middleNameView.getText().toString());
-                            newPerson.setLastName(lastNameView.getText().toString());
-                            newPerson.setOptionalSuffix(suffixView.getText().toString());
-                            newPerson.setBirthday(birthdayView.getText().toString());
-                            newPerson.setCity(cityView.getText().toString());
-                            newPerson.setJob(jobView.getText().toString());
-                            newPerson.setEmployer(employerView.getText().toString());
-                            newPerson.setInterests(interestsView.getText().toString());
+                            if (!middleNameView.getText().toString().matches("Middle Name")){
+                                newPerson.setMiddleName(middleNameView.getText().toString());
+                            }
+                            else {
+                                newPerson.setMiddleName("");
+                            }
+                            if (!lastNameView.getText().toString().matches("Last Name")){
+                                newPerson.setLastName(lastNameView.getText().toString());
+                            }
+                            else {
+                                newPerson.setLastName("");
+                            }
+                            if (!suffixView.getText().toString().matches("Suffix")){
+                                newPerson.setOptionalSuffix(suffixView.getText().toString());
+                            }
+                            else {
+                                newPerson.setOptionalSuffix("");
+                            }
+                            if (!birthdayView.getText().toString().matches("Birthday")){
+                                newPerson.setBirthday(birthdayView.getText().toString());
+                            }
+                            else {
+                                newPerson.setBirthday("");
+                            }
+                            if (!cityView.getText().toString().matches("City")){
+                                newPerson.setCity(cityView.getText().toString());
+                            }
+                            else {
+                                newPerson.setCity("");
+                            }
+                            if (!jobView.getText().toString().matches("Job/Major")){
+                                newPerson.setJob(jobView.getText().toString());
+                            }
+                            else {
+                                newPerson.setJob("");
+                            }
+                            if (!employerView.getText().toString().matches("Employer/School")){
+                                newPerson.setEmployer(employerView.getText().toString());
+                            }
+                            else {
+                                newPerson.setEmployer("");
+                            }
+                            if (!interestsView.getText().toString().matches("Interests")){
+                                newPerson.setInterests(interestsView.getText().toString());
+                            }
+                            else {
+                                newPerson.setInterests("");
+                            }
                             if (marriedCheckbox.isChecked()){
                                 newPerson.setMarried(true);
                             }
@@ -144,15 +183,21 @@ public class NewPersonActivity extends AppCompatActivity implements AdapterView.
                                 newPerson.setAlive(true);
                             }
                             if (relationship.matches("Significant Other")){
-                                newPerson.setSignificantOther(person);
-                                person.setSignificantOther(newPerson);
+                                RealmList<Person> personSO = person.getSignificantOther();
+                                RealmList<Person> newPersonSO = new RealmList<Person>();
+                                newPersonSO.add(person);
+                                newPerson.setSignificantOther(newPersonSO);
+                                personSO.add(newPerson);
+                                person.setSignificantOther(personSO);
                                 realm.copyToRealmOrUpdate(person);
                                 newPerson.setKids(person.getKids());
                             }
                             if (relationship.matches("Child")){
                                 RealmList<Person> parents = new RealmList<Person>();
                                 parents.add(person);
-                                parents.add(person.getSignificantOther());
+                                if(!person.getSignificantOther().isEmpty()){
+                                    parents.add(person.getSignificantOther().last());
+                                }
                                 newPerson.setParents(parents);
                                 RealmList<Person> kids = person.getKids();
                                 kids.add(newPerson);

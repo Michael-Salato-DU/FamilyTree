@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -127,15 +125,34 @@ public class EditPersonActivity extends AppCompatActivity{
                         image.getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] imageInByte = baos.toByteArray();
                         person.setImage(imageInByte);
-                        person.setFirstName(firstNameView.getText().toString());
-                        person.setMiddleName(middleNameView.getText().toString());
-                        person.setLastName(lastNameView.getText().toString());
-                        person.setOptionalSuffix(suffixView.getText().toString());
-                        person.setBirthday(birthdayView.getText().toString());
-                        person.setCity(cityView.getText().toString());
-                        person.setJob(jobView.getText().toString());
-                        person.setEmployer(employerView.getText().toString());
-                        person.setInterests(interestsView.getText().toString());
+                        if (!firstNameView.getText().toString().matches("First Name")){
+                            person.setFirstName(firstNameView.getText().toString());
+                        }
+                        if (!middleNameView.getText().toString().matches("Middle Name")){
+                            person.setMiddleName(middleNameView.getText().toString());
+                        }
+                        if (!lastNameView.getText().toString().matches("Last Name")){
+                            person.setLastName(lastNameView.getText().toString());
+                        }
+                        if (!suffixView.getText().toString().matches("Suffix")){
+                            person.setOptionalSuffix(suffixView.getText().toString());
+                        }
+                        if (!birthdayView.getText().toString().matches("Birthday")){
+                            person.setBirthday(birthdayView.getText().toString());
+                        }
+                        if (!cityView.getText().toString().matches("City")){
+                            person.setCity(cityView.getText().toString());
+                        }
+                        if (!jobView.getText().toString().matches("Job/Major")){
+                            person.setJob(jobView.getText().toString());
+                        }
+                        if (!employerView.getText().toString().matches("Employer/School")){
+                            person.setEmployer(employerView.getText().toString());
+                        }
+                        if (!interestsView.getText().toString().matches("Interests")){
+                            person.setInterests(interestsView.getText().toString());
+                        }
+
                         person.setMarried(marriedCheckbox.isChecked());
                         person.setAlive(!aliveView.isChecked());
 

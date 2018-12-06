@@ -13,7 +13,7 @@ public class Person extends RealmObject{
     private String lastName;
     private String optionalSuffix;
     private RealmList<Person> parents;
-    private Person significantOther;
+    private RealmList<Person> significantOther;
     private boolean married;
     private RealmList<Person> kids;
     private String birthday;
@@ -74,11 +74,11 @@ public class Person extends RealmObject{
         this.parents = parents;
     }
 
-    public Person getSignificantOther() {
+    public RealmList<Person> getSignificantOther() {
         return significantOther;
     }
 
-    public void setSignificantOther(Person significantOther) {
+    public void setSignificantOther(RealmList<Person> significantOther) {
         this.significantOther = significantOther;
     }
 
