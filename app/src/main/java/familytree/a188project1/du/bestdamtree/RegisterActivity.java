@@ -56,6 +56,18 @@ public class RegisterActivity extends AppCompatActivity {
                             new_person.setRealmID(random_string_generator());
                             new_person.setFirstName(first_name_input_string);
                             new_person.setLastName(last_name_input_string);
+
+                            //From here onwards they have to set it themselves in the profile page
+                            new_person.setMiddleName("");
+                            new_person.setOptionalSuffix("");
+                            new_person.setBirthday("");
+                            new_person.setCity("");
+                            new_person.setJob("");
+                            new_person.setEmployer("");
+                            new_person.setInterests("");
+                            new_person.setMarried(false);
+                            new_person.setAlive(true);
+
                             new_user.setPerson(new_person);
 
                             realm.copyToRealmOrUpdate(new_user);
