@@ -32,6 +32,7 @@ public class QuizAdapter extends FragmentStatePagerAdapter{
                 question1.setQuestionNumber(i+1);
 //                question1.setImageQuiz(BitmapFactory.decodeByteArray(quizzes.get(i).getPerson().getImage(),
 //                        0,quizzes.get(i).getPerson().getImage().length));
+                question1.setImageQuiz(BitmapFactory.decodeResource(question1.getResources(), R.drawable.smile));
                 return question1;
             case 1:
                 QuizFragment question2 = new QuizFragment();
@@ -87,6 +88,7 @@ public class QuizAdapter extends FragmentStatePagerAdapter{
                 question10.setQuestionNumber(i+1);
 //                question10.setImageQuiz(BitmapFactory.decodeByteArray(quizzes.get(i).getPerson().getImage(),
 //                        0,quizzes.get(i).getPerson().getImage().length));
+                question10.setImageQuiz(BitmapFactory.decodeResource(question10.getResources(), R.drawable.smile));
                 return question10;
             default:
                 return null;
