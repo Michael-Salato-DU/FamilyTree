@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 admin.setLast_name("Chan");
 
                 // Creates a dummy Person
+                RealmList<Person> emptyList = new RealmList<Person>();
                 Person admin_person = new Person();
                 admin_person.setRealmID("AVSDSC52");
                 admin_person.setFirstName("Jacky");
@@ -95,15 +96,10 @@ public class LoginActivity extends AppCompatActivity {
                 admin_person.setInterests("Scaring people");
                 admin_person.setMarried(false);
                 admin_person.setAlive(true);
-                RealmList<Person> kids = new RealmList<Person>();
-                admin_person.setKids(kids);
-                RealmList<Person> parents = new RealmList<Person>();
-                admin_person.setParents(parents);
+                admin_person.setKids(emptyList);
+                admin_person.setParents(emptyList);
 
                 admin.setPerson(admin_person);
-
-
-
                 realm.copyToRealmOrUpdate(admin);
             }
         });
