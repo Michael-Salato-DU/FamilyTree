@@ -74,7 +74,42 @@ public class PersonActivity extends AppCompatActivity{
             Bitmap bmp = BitmapFactory.decodeByteArray(person.getImage(), 0, person.getImage().length);
             imageView.setImageBitmap(bmp);
         }
-        nameView.setText(person.getFirstName() + " " + person.getLastName());
+        if (!person.getLastName().matches("")){
+            if (!person.getMiddleName().matches("")){
+                if (!person.getOptionalSuffix().matches("")){
+                    nameView.setText(person.getFirstName() + " " + person.getMiddleName() + " " + person.getLastName() + ", " + person.getOptionalSuffix());
+                }
+                else {
+                    nameView.setText(person.getFirstName() + " " + person.getMiddleName() + " " + person.getLastName());
+                }
+            }
+            else {
+                if (!person.getOptionalSuffix().matches("")){
+                    nameView.setText(person.getFirstName() + " " + person.getLastName() + ", " + person.getOptionalSuffix());
+                }
+                else {
+                    nameView.setText(person.getFirstName() + " " + person.getLastName());
+                }
+            }
+        }
+        else {
+            if (!person.getMiddleName().matches("")){
+                if (!person.getOptionalSuffix().matches("")){
+                    nameView.setText(person.getFirstName() + " " + person.getMiddleName() + ", " + person.getOptionalSuffix());
+                }
+                else {
+                    nameView.setText(person.getFirstName() + " " + person.getMiddleName());
+                }
+            }
+            else {
+                if (!person.getOptionalSuffix().matches("")){
+                    nameView.setText(person.getFirstName() + ", " + person.getOptionalSuffix());
+                }
+                else {
+                    nameView.setText(person.getFirstName());
+                }
+            }
+        }
         birthdayView.setText(person.getBirthday());
         cityView.setText(person.getCity());
         jobView.setText(person.getJob());
