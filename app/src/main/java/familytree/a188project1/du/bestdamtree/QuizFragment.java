@@ -47,7 +47,7 @@ public class QuizFragment extends Fragment {
         answerC = (RadioButton) view.findViewById(R.id.answer_button_c);
         answerD = (RadioButton) view.findViewById(R.id.answer_button_d);
 
-        questionView.setText(Integer.toString(this.QuestionNumber)+". " +quiz.getQuestion());
+        questionView.setText(Integer.toString(this.QuestionNumber)+ ". " +quiz.getQuestion());
         imageView.setImageBitmap(imageQuiz);
         answerA.setText(quiz.getAnswer(0));
         answerB.setText(quiz.getAnswer(1));
