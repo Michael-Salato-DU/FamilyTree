@@ -68,8 +68,7 @@ public class PersonActivity extends AppCompatActivity{
         person = realm.where(Person.class).equalTo("RealmID", personID).findFirst();
         family = realm.where(Tree.class).equalTo("name", familyTree).findFirst();
 
-        //ADD IF STATEMENTS
-        //nameView.setText(person.getFirstName() + " " + person.getMiddleName() + " " + person.getLastName() + " " + person.getOptionalSuffix());
+
         if(person.getImage()!=null){
             Bitmap bmp = BitmapFactory.decodeByteArray(person.getImage(), 0, person.getImage().length);
             imageView.setImageBitmap(bmp);
