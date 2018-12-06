@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@android:drawable/ic_menu_help" />
 
         <!-- source for adding a toolbar to the layout: -->
         <!-- title: Create a navigation drawer: Add the toolbar to your layout -->
